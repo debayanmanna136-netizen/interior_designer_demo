@@ -1,0 +1,103 @@
+.process { background: var(--color-background); overflow: hidden; }
+
+.header       { max-width: 640px; margin-bottom: 80px; }
+.subheading   { color: var(--color-on-surface-var); margin-top: 16px; }
+
+.steps        { display: flex; flex-direction: column; }
+
+.step {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+/* Left column: number badge + connector line */
+.stepLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 6px;
+}
+
+.stepNum {
+  color: var(--color-on-surface-var);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-outline-var);
+  border-radius: var(--radius-full);
+  background: var(--color-surface-low);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+  transition:
+    background     var(--transition-slow),
+    border-color   var(--transition-slow),
+    color          var(--transition-base);
+}
+
+.step:hover .stepNum {
+  background: var(--color-bronze);
+  border-color: var(--color-bronze);
+  color: #fff;
+}
+
+.connector {
+  width: 1px;
+  flex: 1;
+  min-height: 80px;
+  margin-top: 10px;
+  background: linear-gradient(to bottom, var(--color-outline-var) 0%, transparent 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated fill when step is hovered */
+.connector::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 0%;
+  background: var(--color-bronze);
+  opacity: 0.35;
+  transition: height 0.7s var(--ease-out-expo);
+}
+.step:hover .connector::after { height: 100%; }
+
+/* Body */
+.stepBody { padding-bottom: 60px; }
+.step:last-child .stepBody { padding-bottom: 0; }
+
+.stepTitle {
+  font-size: clamp(18px, 1.8vw, 22px);
+  margin-bottom: 12px;
+  transition: color var(--transition-fast);
+}
+.step:hover .stepTitle { color: var(--color-bronze); }
+
+.stepDesc {
+  color: var(--color-on-surface-var);
+  max-width: 520px;
+  transition: color var(--transition-fast);
+}
+.step:hover .stepDesc { color: var(--color-on-surface); }
+
+/* ── Responsive ──────────────────────────────────────── */
+@media (max-width: 768px) {
+  .header { margin-bottom: 56px; }
+  .step   { grid-template-columns: 52px 1fr; gap: 24px; }
+  .stepNum { width: 40px; height: 40px; font-size: 11px; }
+}
+
+@media (max-width: 480px) {
+  .step { grid-template-columns: 40px 1fr; gap: 18px; }
+  .stepNum { width: 36px; height: 36px; }
+  .stepBody { padding-bottom: 44px; }
+}

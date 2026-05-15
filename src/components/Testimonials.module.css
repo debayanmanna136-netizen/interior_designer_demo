@@ -1,0 +1,107 @@
+.testimonials { background: var(--color-surface-low); overflow: hidden; }
+
+.header         { max-width: 620px; margin-bottom: 64px; }
+.heading        { color: var(--color-obsidian); }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid var(--color-outline-var);
+  border-radius: var(--radius-md);
+  padding: 40px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  position: relative;
+  overflow: hidden;
+  transition:
+    box-shadow  var(--transition-slow),
+    transform   var(--transition-slow),
+    border-color var(--transition-base);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 56px rgba(26, 26, 26, 0.07);
+  border-color: rgba(181, 147, 107, 0.5);
+}
+
+/* Top-right glow blob on hover */
+.card::before {
+  content: '';
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(181,147,107,0.15), transparent 70%);
+  opacity: 0;
+  transition: opacity var(--transition-slow);
+}
+.card:hover::before { opacity: 1; }
+
+/* Quote icon */
+.quoteMark {
+  width: 32px;
+  height: 24px;
+  color: var(--color-bronze);
+  opacity: 0.35;
+  flex-shrink: 0;
+  transition: opacity var(--transition-base);
+}
+.card:hover .quoteMark { opacity: 0.6; }
+
+.quote {
+  color: var(--color-on-surface);
+  font-style: italic;
+  flex: 1;
+  transition: color var(--transition-fast);
+}
+.card:hover .quote { color: var(--color-obsidian); }
+
+/* Author */
+.author { display: flex; align-items: center; gap: 16px; }
+
+.avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background: var(--color-bronze);
+  color: #fff;
+  font-family: var(--font-headline);
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform var(--transition-spring), box-shadow var(--transition-base);
+}
+.card:hover .avatar {
+  box-shadow: 0 3px 12px rgba(181, 147, 107, 0.35);
+}
+
+.name {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-obsidian);
+  margin-bottom: 2px;
+}
+
+.role { color: var(--color-on-surface-var); font-size: 11px; }
+
+/* ── Responsive ──────────────────────────────────────── */
+@media (max-width: 900px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .grid { grid-template-columns: 1fr; }
+  .card { padding: 28px 24px; }
+}

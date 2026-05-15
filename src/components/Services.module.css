@@ -1,0 +1,97 @@
+.services { background: var(--color-sandstone); overflow: hidden; }
+
+.header   { margin-bottom: 64px; max-width: 700px; }
+.heading  { color: var(--color-obsidian); }
+
+/* Grid with 1px-gap borders */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--color-outline-var);
+  border: 1px solid var(--color-outline-var);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.card {
+  position: relative;
+  background: var(--color-sandstone);
+  padding: 36px 30px;
+  overflow: hidden;
+  transition: background var(--transition-base);
+  cursor: default;
+}
+
+.card:hover { background: #fff; }
+
+/* Top row */
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.number {
+  color: var(--color-bronze);
+  opacity: 0.7;
+  transition: opacity var(--transition-fast), letter-spacing var(--transition-base);
+}
+.card:hover .number { opacity: 1; letter-spacing: 0.16em; }
+
+.icon {
+  font-size: 22px;
+  color: var(--color-on-surface-var);
+  opacity: 0.45;
+  transition: opacity var(--transition-base), color var(--transition-base);
+}
+.card:hover .icon { opacity: 1; color: var(--color-bronze); }
+
+/* Title */
+.title {
+  font-size: clamp(15px, 1.2vw, 18px);
+  margin-bottom: 12px;
+  color: var(--color-obsidian);
+  transition: color var(--transition-fast);
+}
+.card:hover .title { color: var(--color-bronze); }
+
+/* Description */
+.desc {
+  color: var(--color-on-surface-var);
+  font-size: 14px;
+  line-height: 1.65;
+  transition: color var(--transition-fast);
+}
+.card:hover .desc { color: var(--color-on-surface); }
+
+/* Bottom accent sweep */
+.hoverLine {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background: var(--color-bronze);
+  transition: width 0.6s var(--ease-out-expo);
+}
+.card:hover .hoverLine { width: 100%; }
+
+/* Left accent bar */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 0;
+  background: var(--color-bronze);
+  transition: height 0.6s var(--ease-out-expo);
+}
+.card:hover::before { height: 100%; }
+
+/* ── Responsive ──────────────────────────────────────── */
+@media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 420px)  { .grid { grid-template-columns: 1fr; } }
