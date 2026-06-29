@@ -14,7 +14,7 @@ export default function Hero() {
     const handler = () => {
       const y = window.scrollY;
       const img = el.querySelector<HTMLElement>(`.${styles.bgImg}`);
-      if (img) img.style.transform = `translateY(${y * 0.35}px)`;
+      if (img) img.style.transform = `translateY(${y * 0.55}px)`;
     };
     window.addEventListener('scroll', handler, { passive: true });
     return () => window.removeEventListener('scroll', handler);
@@ -26,7 +26,7 @@ export default function Hero() {
       <div className={styles.bgWrapper}>
         <Image
           src="/hero.png"
-          alt="Minimalist luxury living room by Interior Zone"
+          alt="Luxury modern housing development by Gokul Housing"
           fill
           priority
           className={styles.bgImg}
@@ -39,15 +39,15 @@ export default function Hero() {
       <div className={`container ${styles.content}`}>
         <div className={styles.textBlock}>
           <span className={`label-md ${styles.eyebrow} animate-fade-up`}>
-            Luxury Interior Design Studio
+            Premium Housing Developers
           </span>
           <h1 className={`display-lg ${styles.headline} animate-fade-up delay-2`}>
-            Transforming Spaces<br />
-            <em>Into Experiences</em>
+            Building Homes<br />
+            <em>Into Legacies</em>
           </h1>
           <p className={`body-lg ${styles.subheadline} animate-fade-up delay-3`}>
-            Modern interior design solutions crafted with elegance, comfort,
-            and functionality for homes and businesses.
+            Modern housing developments crafted with elegance, comfort,
+            and sustainability for growing communities.
           </p>
           <div className={`${styles.actions} animate-fade-up delay-4`}>
             <Link href="#projects" className="btn-primary">

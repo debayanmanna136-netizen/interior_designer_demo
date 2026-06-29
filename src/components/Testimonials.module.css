@@ -1,7 +1,31 @@
-.testimonials { background: var(--color-surface-low); overflow: hidden; }
+.testimonials { 
+  background: var(--color-surface-low); 
+  overflow: hidden; 
+  position: relative;
+}
+
+/* ── Background ───────────────────────────────────────── */
+.bgWrapper {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.bgImg { will-change: transform; }
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(18, 18, 18, 0.85); /* Dark overlay */
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+}
 
 .header         { max-width: 620px; margin-bottom: 64px; }
-.heading        { color: var(--color-obsidian); }
+.heading        { color: #ffffff; }
 
 .grid {
   display: grid;
@@ -10,8 +34,9 @@
 }
 
 .card {
-  background: #fff;
-  border: 1px solid var(--color-outline-var);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: var(--radius-md);
   padding: 40px 36px;
   display: flex;

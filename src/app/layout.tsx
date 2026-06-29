@@ -2,21 +2,21 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Interior Zone — Transforming Spaces Into Experiences",
+  title: "Gokul Housing — Building Your Future",
   description:
-    "Interior Zone is a luxury interior design studio specialising in quiet luxury, minimalist aesthetics and timeless spaces for homes and businesses.",
+    "Gokul Housing is a premium housing development company specialising in sustainable architecture, community living, and high-end residential projects.",
   keywords: [
-    "interior design",
-    "luxury interiors",
-    "minimalist design",
-    "home interiors",
-    "commercial interiors",
-    "Interior Zone",
+    "housing development",
+    "premium homes",
+    "real estate developer",
+    "sustainable architecture",
+    "custom home building",
+    "Gokul Housing",
   ],
   openGraph: {
-    title: "Interior Zone — Transforming Spaces Into Experiences",
+    title: "Gokul Housing — Building Your Future",
     description:
-      "A high-end interior design studio crafting minimalist, luxury spaces for discerning clients.",
+      "A premium real estate developer crafting sustainable, luxury communities and custom homes.",
     type: "website",
   },
 };

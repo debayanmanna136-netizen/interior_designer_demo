@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import useReveal from '@/hooks/useReveal';
@@ -9,29 +9,29 @@ import styles from './Projects.module.css';
 const projects = [
   {
     id: 1,
-    title: 'The Minimalist Penthouse',
-    category: 'Residential',
-    type: 'Modern Apartment',
+    title: 'The Willow Creek Estate',
+    category: 'Development',
+    type: 'Luxury Estate',
     image: '/project-penthouse.png',
-    alt: 'Minimalist penthouse living and dining area by Interior Zone',
+    alt: 'Luxury estate housing development by Gokul Housing',
     featured: true,
   },
   {
     id: 2,
-    title: 'Corporate HQ',
-    category: 'Commercial',
-    type: 'Office Space',
+    title: 'Sunset Valley Community',
+    category: 'Community',
+    type: 'Suburban Neighborhood',
     image: '/project-office.png',
-    alt: 'Luxury corporate office interior by Interior Zone',
+    alt: 'Suburban neighborhood development by Gokul Housing',
     featured: false,
   },
   {
     id: 3,
-    title: 'Quiet Luxury Suite',
-    category: 'Residential',
-    type: 'Bedroom Design',
+    title: 'The Modern Townhouse',
+    category: 'Development',
+    type: 'Urban Housing',
     image: '/project-bedroom.png',
-    alt: 'Quiet luxury bedroom suite by Interior Zone',
+    alt: 'Modern townhouse residential development by Gokul Housing',
     featured: false,
   },
 ];
@@ -39,6 +39,44 @@ const projects = [
 export default function Projects() {
   const sectionRef = useRef<HTMLDivElement>(null);
   useReveal(sectionRef);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    
+    const handler = () => {
+      // Floating parallax and zoom for project cards
+      const cards = el.querySelectorAll<HTMLElement>(`.${styles.card}`);
+      cards.forEach((card) => {
+        const rect = card.getBoundingClientRect();
+        
+        // Only animate if the card is in or near the viewport
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          const imageWrapper = card.querySelector<HTMLElement>(`.${styles.imageWrapper}`);
+          const image = card.querySelector<HTMLElement>(`.${styles.image}`);
+          const body = card.querySelector<HTMLElement>(`.${styles.cardBody}`);
+          
+          // Calculate how far the card has scrolled into view
+          const offset = window.innerHeight - rect.top;
+          
+          if (imageWrapper && body && image) {
+             // Foreground parallax (image moves slower than text body)
+             imageWrapper.style.transform = `translateY(${offset * -0.15}px)`;
+             body.style.transform = `translateY(${offset * -0.05}px)`;
+             
+             // Zoom parallax (scale image slowly as we scroll)
+             const scale = 1 + (Math.max(0, offset) * 0.0003);
+             image.style.transform = `scale(${Math.min(scale, 1.25)})`;
+          }
+        }
+      });
+    };
+    
+    window.addEventListener('scroll', handler, { passive: true });
+    // Initial call
+    handler();
+    return () => window.removeEventListener('scroll', handler);
+  }, []);
 
   return (
     <section id="projects" className={`section ${styles.projects}`}>
@@ -52,7 +90,7 @@ export default function Projects() {
           <div className="divider" />
           <div className={styles.headerRow}>
             <h2 className={`headline-lg ${styles.heading}`}>
-              A curated selection of our finest interior transformations.
+              A curated selection of our finest residential developments.
             </h2>
             <Link href="#contact" className={`btn-secondary ${styles.headerCta}`}>
               View All Projects ↗

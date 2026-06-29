@@ -27,11 +27,10 @@ export default function useReveal(containerRef: RefObject<HTMLElement | null>) {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            // Small delay based on data-delay attribute for staggering
+            // Set CSS variable for transition-delay
             const delay = (entry.target as HTMLElement).dataset.delay ?? '0';
-            setTimeout(() => {
-              (entry.target as HTMLElement).classList.add('visible');
-            }, Number(delay));
+            (entry.target as HTMLElement).style.setProperty('--reveal-delay', `${Number(delay) / 1000}s`);
+            (entry.target as HTMLElement).classList.add('visible');
           } else {
             // Remove so it re-animates next scroll-in
             (entry.target as HTMLElement).classList.remove('visible');

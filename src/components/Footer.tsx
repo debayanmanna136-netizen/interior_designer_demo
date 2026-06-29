@@ -10,9 +10,9 @@ export default function Footer() {
       <div className={`container ${styles.inner}`}>
         {/* Brand */}
         <div className={styles.brand}>
-          <Link href="#home" className={styles.logoText}>INTERIOR ZONE</Link>
+          <Link href="#home" className={styles.logoText}>GOKUL HOUSING</Link>
           <p className={`body-md ${styles.tagline}`}>
-            Crafting minimalist, luxury interiors that elevate everyday living.
+            Building premium, sustainable homes that elevate everyday living.
           </p>
           <div className={styles.socials}>
             {['Instagram', 'Pinterest', 'LinkedIn'].map((s) => (
@@ -51,7 +51,7 @@ export default function Footer() {
         <div className={styles.linkGroup}>
           <h4 className={`label-md ${styles.groupTitle}`}>Services</h4>
           <ul className={styles.links}>
-            {['Home Interiors', 'Office Design', 'Renovation', 'Custom Decor'].map((s) => (
+            {['Custom Builds', 'Communities', 'Architecture', 'Land Acquisition'].map((s) => (
               <li key={s}>
                 <a href="#services" className={styles.link}>{s}</a>
               </li>
@@ -64,10 +64,10 @@ export default function Footer() {
       <div className={styles.bottomBar}>
         <div className="container">
           <p className={`label-md ${styles.copyright}`}>
-            © {new Date().getFullYear()} Interior Zone Studio. All rights reserved.
+            © {new Date().getFullYear()} Gokul Housing Group. All rights reserved.
           </p>
           <p className={`label-md ${styles.copyright}`}>
-            Designed with quiet luxury.
+            Built with lasting quality.
           </p>
         </div>
       </div>

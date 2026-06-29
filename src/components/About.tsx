@@ -19,22 +19,22 @@ export default function About() {
           </span>
           <div className="divider" />
           <h2 className={`headline-lg ${styles.heading}`}>
-            About Interior Zone
+            About Gokul Housing
           </h2>
           <p className={`body-lg`}>
-            At Interior Zone, we believe that luxury is found in simplicity and space.
-            Our studio is dedicated to creating environments that resonate with
-            <strong> Quiet Luxury</strong>—where sophisticated design is whispered
-            through materiality, light, and impeccable craftsmanship.
+            At Gokul Housing, we believe that luxury is found in strong foundations and enduring quality.
+            Our company is dedicated to creating environments that resonate with
+            <strong> Lasting Value</strong>—where sophisticated architecture is paired
+            with sustainable building practices and impeccable craftsmanship.
           </p>
           <p className={`body-md`} style={{ color: 'var(--color-on-surface-var)', marginTop: 16 }}>
-            We specialise in minimalist aesthetics combined with functional elegance.
-            Every project is a curated narrative, tailored meticulously to our clients&apos;
-            vision, resulting in spaces that are not only beautiful but profoundly calm
-            and timeless.
+            We specialise in master-planned communities combined with functional elegance.
+            Every development is a curated narrative, tailored meticulously to our residents&apos;
+            lifestyles, resulting in neighbourhoods that are not only beautiful but profoundly
+            enriching and timeless.
           </p>
           <div className={styles.pillars}>
-            {['Materiality', 'Craftsmanship', 'Proportion', 'Light'].map((p) => (
+            {['Sustainability', 'Craftsmanship', 'Community', 'Location'].map((p) => (
               <span key={p} className="tag">{p}</span>
             ))}
           </div>
@@ -44,17 +44,17 @@ export default function About() {
         <div className={`reveal ${styles.accentCol}`} data-reveal="right" data-delay="150">
           <div className={styles.accentCard}>
             <blockquote className={styles.quote}>
-              &ldquo;Great design is not just how something looks — it&rsquo;s how it
-              makes you feel the moment you walk through the door.&rdquo;
+              &ldquo;Great building is not just about brick and mortar — it&rsquo;s about creating
+              a lasting foundation where life's best memories can unfold.&rdquo;
             </blockquote>
-            <cite className={`label-md ${styles.author}`}>Interior Zone Studio</cite>
+            <cite className={`label-md ${styles.author}`}>Gokul Housing Group</cite>
           </div>
           <div className={styles.metaGrid}>
             {[
-              { value: '2012', label: 'Founded' },
-              { value: '8',    label: 'Design Principals' },
-              { value: '3',    label: 'Countries' },
-              { value: '42',   label: 'Design Awards' },
+              { value: '2005', label: 'Founded' },
+              { value: '12',   label: 'Lead Architects' },
+              { value: '4',    label: 'Regions' },
+              { value: '35',   label: 'Industry Awards' },
             ].map((m, i) => (
               <div
                 key={m.label}

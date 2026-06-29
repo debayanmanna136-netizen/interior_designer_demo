@@ -7,27 +7,27 @@ import styles from './Process.module.css';
 const steps = [
   {
     step: '01',
-    title: 'Initial Consultation',
+    title: 'Site Selection & Planning',
     description:
-      'We begin with a deep-listening session to understand your vision, lifestyle, and aspirations for the space.',
+      'We begin with a comprehensive analysis to identify the perfect location and understand your vision for the development.',
   },
   {
     step: '02',
-    title: 'Concept Development',
+    title: 'Architectural Design',
     description:
-      'Our team crafts a bespoke design concept including mood boards, material palettes, and spatial layouts.',
+      'Our team crafts a bespoke structural concept including blueprints, sustainable material palettes, and spatial layouts.',
   },
   {
     step: '03',
-    title: 'Design Refinement',
+    title: 'Construction & Building',
     description:
-      'Detailed drawings, 3D visualisations, and material presentations are refined through collaborative feedback.',
+      'Rigorous engineering, 3D modelling, and material sourcing are coordinated to bring the architectural vision to life.',
   },
   {
     step: '04',
-    title: 'Execution & Handover',
+    title: 'Final Inspection & Handover',
     description:
-      'We oversee every detail of the build process, ensuring flawless execution and a seamless reveal.',
+      'We oversee every detail of the build process, ensuring flawless safety standards and a seamless key handover.',
   },
 ];
 

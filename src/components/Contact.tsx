@@ -1,6 +1,7 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
+import Image from 'next/image';
 import useReveal from '@/hooks/useReveal';
 import styles from './Contact.module.css';
 
@@ -26,10 +27,36 @@ export default function Contact() {
     setSubmitted(true);
   };
 
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const handler = () => {
+      const y = window.scrollY;
+      const img = el.querySelector<HTMLElement>(`.${styles.bgImg}`);
+      if (img) img.style.transform = `translateY(${y * 0.4}px)`;
+    };
+    window.addEventListener('scroll', handler, { passive: true });
+    handler(); // initial set
+    return () => window.removeEventListener('scroll', handler);
+  }, []);
+
   return (
-    <section id="contact" className={`section ${styles.contact}`}>
-      <div className="container" ref={sectionRef}>
-        <div className={styles.inner}>
+    <section id="contact" className={`section ${styles.contact}`} ref={sectionRef}>
+      
+      {/* Parallax Background */}
+      <div className={styles.bgWrapper}>
+        <Image
+          src="/project-bedroom.png"
+          alt="Gokul Housing Contact Parallax Background"
+          fill
+          className={styles.bgImg}
+          style={{ objectFit: 'cover' }}
+        />
+        <div className={styles.overlay} />
+      </div>
+
+      <div className={`container ${styles.inner}`}>
+        <div className={styles.contentWrapper}>
           {/* Left: info */}
           <div className={`reveal ${styles.infoCol}`}>
             <span className="label-md" style={{ color: 'var(--color-bronze)' }}>
@@ -40,18 +67,22 @@ export default function Contact() {
               Ready to elevate your space?
             </h2>
             <p className={`body-lg ${styles.body}`}>
-              Fill out the form to schedule an initial consultation with our design experts.
+              Fill out the form to schedule an initial consultation with our property experts.
               We look forward to understanding your vision.
             </p>
 
             <div className={styles.contactItems}>
               <div className={styles.contactItem}>
-                <span className={`label-md ${styles.contactLabel}`}>Phone</span>
-                <a href="tel:+15551234567" className={styles.contactValue}>+1 (555) 123-4567</a>
+                <span className={`label-md ${styles.contactLabel}`}>Owner</span>
+                <span className={styles.contactValue}>Mr. Monoj Manna</span>
               </div>
               <div className={styles.contactItem}>
-                <span className={`label-md ${styles.contactLabel}`}>WhatsApp</span>
-                <a href="https://wa.me/15559876543" className={styles.contactValue} target="_blank" rel="noopener noreferrer">+1 (555) 987-6543</a>
+                <span className={`label-md ${styles.contactLabel}`}>Phone / WhatsApp</span>
+                <a href="https://wa.me/917001017605" className={styles.contactValue} target="_blank" rel="noopener noreferrer">+91 70010 17605</a>
+              </div>
+              <div className={styles.contactItem}>
+                <span className={`label-md ${styles.contactLabel}`}>Alternate Phone</span>
+                <a href="tel:+919123902338" className={styles.contactValue}>+91 91239 02338</a>
               </div>
               <div className={styles.contactItem}>
                 <span className={`label-md ${styles.contactLabel}`}>Operating Hours</span>
@@ -124,14 +155,12 @@ export default function Contact() {
                       onChange={handleChange}
                     >
                       <option value="">Select a service</option>
-                      <option value="home">Home Interiors</option>
-                      <option value="kitchen">Modular Kitchen</option>
-                      <option value="bedroom">Bedroom Design</option>
-                      <option value="living">Living Room</option>
-                      <option value="office">Office Interiors</option>
-                      <option value="renovation">Space Renovation</option>
-                      <option value="furniture">Furniture Planning</option>
-                      <option value="decor">Custom Decor</option>
+                      <option value="custom_build">Custom Home Build</option>
+                      <option value="community">Community Living</option>
+                      <option value="investment">Property Investment</option>
+                      <option value="commercial">Commercial Estate</option>
+                      <option value="land">Land Acquisition</option>
+                      <option value="management">Property Management</option>
                     </select>
                   </div>
                 </div>

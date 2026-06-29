@@ -1,26 +1,27 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
+import Image from 'next/image';
 import useReveal from '@/hooks/useReveal';
 import styles from './Testimonials.module.css';
 
 const testimonials = [
   {
-    quote: 'Interior Zone transformed our living space into an elegant sanctuary. Their attention to detail and understanding of our vision was truly exceptional. The result is a home that feels both luxurious and comfortable.',
+    quote: 'Gokul Housing built our family the perfect sanctuary. Their attention to structural detail and understanding of our vision was truly exceptional. The result is a home that feels both luxurious and incredibly solid.',
     name: 'Sarah Jenkins',
-    role: 'Residential Client',
+    role: 'New Homeowner',
     initial: 'S',
   },
   {
-    quote: 'The professionalism and creativity of the team are unmatched. They completely reimagined our office layout, creating an inspiring environment that our employees love. A seamless and elegant transformation.',
+    quote: 'The professionalism and expertise of the development team are unmatched. They completely transformed an empty lot into an inspiring commercial community that our tenants love. A seamless and reliable process.',
     name: 'Michael Chen',
-    role: 'Corporate Client',
+    role: 'Commercial Investor',
     initial: 'M',
   },
   {
-    quote: 'Working with Interior Zone was a delight. They effortlessly blended minimalist aesthetics with functional elegance. Every room now tells a cohesive story, perfectly balanced with warmth and serenity.',
+    quote: 'Working with Gokul Housing was a delight. They effortlessly blended sustainable architecture with functional elegance. The entire neighborhood now tells a cohesive story, perfectly balanced with warmth and serenity.',
     name: 'Elena Rossi',
-    role: 'Boutique Owner',
+    role: 'Community Resident',
     initial: 'E',
   },
 ];
@@ -29,11 +30,39 @@ export default function Testimonials() {
   const sectionRef = useRef<HTMLDivElement>(null);
   useReveal(sectionRef);
 
-  return (
-    <section className={`section ${styles.testimonials}`}>
-      <div className="container" ref={sectionRef}>
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const handler = () => {
+      const y = window.scrollY;
+      const img = el.querySelector<HTMLElement>(`.${styles.bgImg}`);
+      // Testimonials is further down, using an offset relative to viewport can also work,
+      // but simple window.scrollY multiplied by a smaller factor is robust.
+      if (img) img.style.transform = `translateY(${y * 0.35}px)`;
+    };
+    window.addEventListener('scroll', handler, { passive: true });
+    handler(); // initial set
+    return () => window.removeEventListener('scroll', handler);
+  }, []);
 
-        <div className={`reveal ${styles.header}`} data-reveal="fade">
+  return (
+    <section className={`section ${styles.testimonials}`} ref={sectionRef}>
+      
+      {/* Parallax Background */}
+      <div className={styles.bgWrapper}>
+        <Image
+          src="/project-penthouse.png"
+          alt="Gokul Housing Development Parallax Background"
+          fill
+          className={styles.bgImg}
+          style={{ objectFit: 'cover' }}
+        />
+        <div className={styles.overlay} />
+      </div>
+
+      <div className={`container ${styles.inner}`}>
+
+        <div className={`reveal ${styles.header}`} data-reveal="luxury-up">
           <span className="label-md" style={{ color: 'var(--color-bronze)' }}>Client Voices</span>
           <div className="divider" />
           <h2 className={`headline-lg ${styles.heading}`}>

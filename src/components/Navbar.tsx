@@ -27,8 +27,8 @@ export default function Navbar() {
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
       <div className={`container ${styles.inner}`}>
         {/* Logo */}
-        <Link href="#home" className={styles.logoLink} aria-label="Interior Zone Home">
-          <span className={styles.logoText}>INTERIOR ZONE</span>
+        <Link href="#home" className={styles.logoLink} aria-label="Gokul Housing Home">
+          <span className={styles.logoText}>GOKUL HOUSING</span>
         </Link>
 
         {/* Desktop Nav */}

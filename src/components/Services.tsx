@@ -5,14 +5,14 @@ import useReveal from '@/hooks/useReveal';
 import styles from './Services.module.css';
 
 const services = [
-  { number: '01', title: 'Home Interiors',    description: 'Complete residential design solutions that reflect your personal style with timeless elegance.',                          icon: '⌂' },
-  { number: '02', title: 'Modular Kitchens',  description: 'Functional and elegant culinary spaces tailored for modern living and seamless workflow.',                             icon: '◈' },
-  { number: '03', title: 'Bedroom Design',    description: 'Tranquil sanctuaries designed for ultimate comfort, rest, and personal rejuvenation.',                                 icon: '☽' },
-  { number: '04', title: 'Living Room Styling', description: 'Sophisticated gathering spaces that blend luxury, warmth, and functional beauty.',                                   icon: '⬡' },
-  { number: '05', title: 'Office Interiors',  description: 'Inspiring workspaces optimised for productivity, wellbeing, and brand identity.',                                     icon: '▦' },
-  { number: '06', title: 'Space Renovation',  description: 'Transformative redesigns that breathe new life into outdated or underutilised areas.',                               icon: '◎' },
-  { number: '07', title: 'Furniture Planning', description: 'Curated furniture selection and strategic spatial arrangements for perfect proportions.',                            icon: '⊞' },
-  { number: '08', title: 'Custom Decor',      description: 'Bespoke decor elements and art curation that add unique character to your space.',                                   icon: '◇' },
+  { number: '01', title: 'Custom Home Builds',    description: 'Complete residential development solutions that reflect your personal style with enduring quality.',                         icon: '⌂' },
+  { number: '02', title: 'Community Living',      description: 'Master-planned neighbourhoods designed for modern living and seamless connectivity.',                                  icon: '◈' },
+  { number: '03', title: 'Sustainable Design',    description: 'Eco-friendly housing developments focused on energy efficiency and environmental harmony.',                                icon: '☽' },
+  { number: '04', title: 'Turnkey Solutions',     description: 'Comprehensive design-to-build services that blend luxury, warmth, and functional architecture.',                           icon: '⬡' },
+  { number: '05', title: 'Commercial Estates',    description: 'Inspiring business parks and workspaces optimised for productivity and brand identity.',                                 icon: '▦' },
+  { number: '06', title: 'Land Acquisition',      description: 'Strategic sourcing and evaluation of premium land for high-value future developments.',                                  icon: '◎' },
+  { number: '07', title: 'Property Management',   description: 'Dedicated post-handover services and structural maintenance for complete peace of mind.',                              icon: '⊞' },
+  { number: '08', title: 'Urban Regeneration',    description: 'Transformative developments that breathe new life into underutilised city areas.',                                     icon: '◇' },
 ];
 
 export default function Services() {
@@ -24,7 +24,7 @@ export default function Services() {
       <div className="container" ref={sectionRef}>
 
         {/* Header */}
-        <div className={`reveal ${styles.header}`} data-reveal="fade">
+        <div className={`reveal ${styles.header}`} data-reveal="luxury-up">
           <span className="label-md" style={{ color: 'var(--color-bronze)' }}>Our Expertise</span>
           <div className="divider" />
           <h2 className={`headline-lg ${styles.heading}`}>

@@ -2,6 +2,7 @@ import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
 import Projects from '@/components/Projects';
+import OngoingProject from '@/components/OngoingProject';
 import Services from '@/components/Services';
 import Testimonials from '@/components/Testimonials';
 import Process from '@/components/Process';
@@ -16,6 +17,7 @@ export default function HomePage() {
         <Hero />
         <About />
         <Projects />
+        <OngoingProject />
         <Services />
         <Testimonials />
         <Process />

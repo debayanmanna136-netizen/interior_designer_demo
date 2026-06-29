@@ -1,4 +1,7 @@
-.about { background: var(--color-surface-low); overflow: hidden; }
+.about { 
+  background: var(--color-surface-low); 
+  overflow: hidden; 
+}
 
 .inner {
   display: grid;
