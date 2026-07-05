@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://gokulhousing.com"),
+  metadataBase: new URL("https://gokulhousing.vercel.app"),
   title: "Gokul Housing — Luxury Real Estate Developer in Chandannagar",
   description:
     "Gokul Housing is a premium real estate developer crafting sustainable, luxury communities and residential projects like Choturborgho, Urvi, and Hainabiti in prime Chandannagar, West Bengal.",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     title: "Gokul Housing — Luxury Real Estate Developer in Chandannagar",
     description:
       "Explore prestigious ongoing developments (Choturborgho, Urvi, Hainabiti) in prime Chandannagar, West Bengal. Crafting sustainable luxury residences.",
-    url: "https://gokulhousing.com",
+    url: "https://gokulhousing.vercel.app",
     siteName: "Gokul Housing",
     images: [
       {
@@ -65,8 +65,8 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "RealEstateAgent",
   name: "Gokul Housing",
-  image: "https://gokulhousing.com/Choturborgho.jpeg",
-  url: "https://gokulhousing.com",
+  image: "https://gokulhousing.vercel.app/Choturborgho.jpeg",
+  url: "https://gokulhousing.vercel.app",
   telephone: "+91-7001017605",
   address: {
     "@type": "PostalAddress",
