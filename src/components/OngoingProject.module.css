@@ -1,161 +1,345 @@
 .ongoing {
   background: var(--color-surface-container);
   overflow: hidden;
+  position: relative;
 }
 
 .header {
-  margin-bottom: 56px;
+  margin-bottom: 40px;
+}
+
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
 }
 
 .heading {
   color: var(--color-obsidian);
   max-width: 680px;
+  margin: 0;
 }
 
-/* ─── Projects Grid ────────────────────────────────────────────────── */
-.projectsGrid {
+/* ─── Project Switcher Controls ────────────────────────────────────── */
+.switcherControls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--color-surface);
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-outline-var);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+.navBtn {
+  background: transparent;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-obsidian);
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.navBtn:hover {
+  background: var(--color-surface-dim);
+  color: var(--color-bronze);
+}
+
+.projectCounter {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--color-on-surface-var);
+  min-width: 48px;
+  text-align: center;
+}
+
+.projectCounter strong {
+  color: var(--color-obsidian);
+}
+
+/* ─── Interactive Tabs ─────────────────────────────────────────────── */
+.tabsContainer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-  margin-bottom: 72px;
-  align-items: stretch;
+  gap: 16px;
 }
 
-/* ─── Card Styling ─────────────────────────────────────────────────── */
-.card {
+.tabBtn {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 18px 22px;
   background: var(--color-surface);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
   border: 1px solid var(--color-outline-var);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
-  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  text-align: left;
+  transition: all var(--transition-base);
   position: relative;
+  overflow: hidden;
 }
 
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.14);
+.tabBtn:hover {
   border-color: var(--color-bronze);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.activeTab {
+  background: var(--color-obsidian);
+  border-color: var(--color-obsidian);
+  box-shadow: 0 12px 32px rgba(26, 26, 26, 0.15);
+}
+
+.tabTitle {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-obsidian);
+  transition: color var(--transition-fast);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.activeTab .tabTitle {
+  color: #fff;
+}
+
+.starBadge {
+  color: #f59e0b;
+  font-size: 16px;
+}
+
+.tabStatus {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-bronze);
+  transition: color var(--transition-fast);
+}
+
+.activeTab .tabStatus {
+  color: var(--color-bronze-light, #e0c8aa);
+}
+
+/* ─── Single Project Showcase Card ─────────────────────────────────── */
+.showcaseCard {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-outline-var);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  margin-bottom: 56px;
+  min-height: 640px;
+}
+
+.imageCol {
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .imageWrapper {
   position: relative;
   width: 100%;
-  aspect-ratio: 4 / 3;
+  height: 100%;
+  min-height: 440px;
   overflow: hidden;
   background: var(--color-surface-dim);
 }
 
 .image {
-  transition: transform 1.1s var(--ease-out-expo);
-  will-change: transform;
+  transition: transform 1.2s var(--ease-out-expo);
 }
 
-.card:hover .image {
-  transform: scale(1.08);
+.showcaseCard:hover .image {
+  transform: scale(1.05);
 }
 
 .imageOverlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    to top,
-    rgba(26, 26, 26, 0.65) 0%,
-    rgba(26, 26, 26, 0.1) 50%,
-    transparent 100%
+    180deg,
+    rgba(26, 26, 26, 0.4) 0%,
+    rgba(26, 26, 26, 0.1) 40%,
+    rgba(26, 26, 26, 0.65) 100%
   );
-  transition: opacity var(--transition-base);
 }
 
 .bookingBadge {
   position: absolute;
-  top: 16px;
-  right: 16px;
+  top: 24px;
+  right: 24px;
   background: var(--color-bronze);
   color: #fff;
-  padding: 6px 14px;
+  padding: 8px 18px;
   border-radius: var(--radius-full);
   font-family: var(--font-body);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  box-shadow: 0 4px 14px rgba(181, 147, 107, 0.45);
+  box-shadow: 0 6px 20px rgba(181, 147, 107, 0.5);
   z-index: 2;
+}
+
+.indexWatermark {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  font-family: var(--font-heading);
+  font-size: 64px;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.18);
+  line-height: 1;
+  z-index: 2;
+  pointer-events: none;
 }
 
 .locationBadge {
   position: absolute;
-  bottom: 16px;
-  left: 16px;
-  background: rgba(26, 26, 26, 0.75);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  bottom: 24px;
+  left: 24px;
+  right: 24px;
+  background: rgba(26, 26, 26, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   color: #fff;
-  padding: 6px 14px;
-  border-radius: var(--radius-full);
+  padding: 12px 20px;
+  border-radius: var(--radius-md);
   font-family: var(--font-body);
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 500;
-  display: flex;
-  align-items: center;
-  gap: 6px;
   z-index: 2;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.cardBody {
+/* ─── Content Column ───────────────────────────────────────────────── */
+.contentCol {
   display: flex;
   flex-direction: column;
-  flex: 1;
-  padding: 28px 24px 24px;
-  gap: 16px;
-  background: var(--color-surface);
+  padding: 44px 48px;
+  justify-content: space-between;
+  gap: 24px;
 }
 
 .cardHeader {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-}
-
-.cardTitle {
-  color: var(--color-obsidian);
-  font-size: clamp(20px, 1.8vw, 24px);
-  transition: color var(--transition-fast);
-}
-
-.card:hover .cardTitle {
-  color: var(--color-bronze);
+  gap: 8px;
 }
 
 .cardSubtitle {
   font-family: var(--font-body);
-  font-size: 12px;
-  font-weight: 600;
+  font-size: 13px;
+  font-weight: 700;
   color: var(--color-bronze);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
+}
+
+.cardTitle {
+  color: var(--color-obsidian);
+  font-size: clamp(28px, 2.5vw, 36px);
+  margin: 0;
+}
+
+.addressTag {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--color-on-surface-var);
+  margin: 4px 0 0;
 }
 
 .cardDesc {
   color: var(--color-on-surface-var);
-  flex: 1;
-  font-size: 14.5px;
-  line-height: 1.65;
+  font-size: 15.5px;
+  line-height: 1.7;
+  margin: 0;
 }
 
-.cardFooter {
-  padding-top: 16px;
-  border-top: 1px solid rgba(26, 26, 26, 0.08);
+/* ─── Highlighted Features Section ─────────────────────────────────── */
+.featuresSection {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: var(--color-surface-low);
+  padding: 24px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-outline-var);
 }
 
-/* ─── Location & Masterplan Section ────────────────────────────────── */
+.featuresHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.featurePill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--color-surface);
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-outline-var);
+  transition: all var(--transition-fast);
+}
+
+.featurePill:hover {
+  border-color: var(--color-bronze);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+}
+
+.featureIcon {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.featureLabel {
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--color-obsidian);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ─── Card Actions ─────────────────────────────────────────────────── */
+.cardActions {
+  display: flex;
+  gap: 16px;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-outline-var);
+}
+
+/* ─── Apartment Specific Map Section ───────────────────────────────── */
 .mapSection {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
+  grid-template-columns: 1fr 1.3fr;
   gap: 48px;
   align-items: center;
   background: var(--color-surface-low);
@@ -174,22 +358,24 @@
 .locationHighlights {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
   margin-block: 16px 8px;
   font-family: var(--font-body);
   font-size: 14.5px;
   color: var(--color-obsidian);
   font-weight: 500;
+  padding-left: 0;
+  list-style: none;
 }
 
 .mapWrapper {
   position: relative;
   width: 100%;
   height: 100%;
-  min-height: 380px;
+  min-height: 420px;
   border-radius: var(--radius-md);
   overflow: hidden;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
   border: 1px solid var(--color-outline-var);
 }
 
@@ -199,35 +385,53 @@
 }
 
 /* ─── Responsive Adjustments ───────────────────────────────────────── */
-@media (max-width: 1024px) {
-  .projectsGrid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+@media (max-width: 1100px) {
+  .showcaseCard {
+    grid-template-columns: 1fr;
   }
-  .card:nth-child(3) {
-    grid-column: 1 / -1;
+  .imageWrapper {
+    min-height: 380px;
+  }
+  .contentCol {
+    padding: 36px 32px;
   }
   .mapSection {
     grid-template-columns: 1fr;
-    padding: 32px;
+    padding: 36px;
     gap: 32px;
   }
   .mapWrapper {
-    min-height: 340px;
+    min-height: 360px;
   }
 }
 
 @media (max-width: 768px) {
-  .projectsGrid {
+  .tabsContainer {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .headerRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .switcherControls {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .featuresGrid {
     grid-template-columns: 1fr;
   }
-  .card:nth-child(3) {
-    grid-column: auto;
+  .cardActions {
+    flex-direction: column;
+  }
+  .contentCol {
+    padding: 24px 20px;
   }
   .mapSection {
     padding: 24px;
   }
   .mapWrapper {
-    min-height: 280px;
+    min-height: 300px;
   }
 }
+

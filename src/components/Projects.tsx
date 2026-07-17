@@ -18,11 +18,11 @@ const projects = [
   },
   {
     id: 2,
-    title: 'urvi ',
+    title: 'Urvi 3',
     category: 'Architecture',
     type: 'Contemporary Sanctuary • Chandannagar',
-    image: '/urvi .jpeg',
-    alt: 'urvi contemporary architectural sanctuary in Chandannagar',
+    image: '/Urvi 3.jpeg',
+    alt: 'Urvi 3 contemporary architectural sanctuary in Chandannagar',
     featured: false,
   },
   {

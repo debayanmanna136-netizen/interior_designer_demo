@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://gokulhousing.vercel.app"),
   title: "Gokul Housing — Luxury Real Estate Developer in Chandannagar",
   description:
-    "Gokul Housing is a premium real estate developer crafting sustainable, luxury communities and residential projects like Choturborgho, Urvi, and Hainabiti in prime Chandannagar, West Bengal.",
+    "Gokul Housing is a premium real estate developer crafting sustainable, luxury communities and residential projects like Choturborgho, Urvi 3, and Hainabiti in prime Chandannagar, West Bengal.",
   keywords: [
     "Gokul Housing",
     "Gokul Housing Chandannagar",
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     "apartments in Chandannagar",
     "flats in Chandannagar West Bengal",
     "Choturborgho Chandannagar",
-    "Urvi Chandannagar",
+    "Urvi 3 Chandannagar",
     "Hainabiti Chandannagar",
     "custom home building Chandannagar",
     "property investment Chandannagar",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Gokul Housing — Luxury Real Estate Developer in Chandannagar",
     description:
-      "Explore prestigious ongoing developments (Choturborgho, Urvi, Hainabiti) in prime Chandannagar, West Bengal. Crafting sustainable luxury residences.",
+      "Explore prestigious ongoing developments (Choturborgho, Urvi 3, Hainabiti) in prime Chandannagar, West Bengal. Crafting sustainable luxury residences.",
     url: "https://gokulhousing.vercel.app",
     siteName: "Gokul Housing",
     images: [
@@ -93,7 +93,7 @@ const jsonLd = {
     name: "Mr. Monoj Manna",
   },
   description:
-    "Gokul Housing is a premier luxury real estate developer based in Chandannagar, West Bengal, specializing in high-end residential developments including Choturborgho, Urvi, and Hainabiti.",
+    "Gokul Housing is a premier luxury real estate developer based in Chandannagar, West Bengal, specializing in high-end residential developments including Choturborgho, Urvi 3, and Hainabiti.",
 };
 
 export default function RootLayout({
